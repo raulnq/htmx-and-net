@@ -1,0 +1,17 @@
+﻿<div>
+    <p>@Model.Name</p>
+    @if (Model.IsCompleted)
+    {
+        <input type="checkbox" checked hx-post="/todos/@Model.Id/toggle" hx-target="closest div" hx-swap="outerHTML" />
+    }
+    else
+    {
+        <input type="checkbox" hx-post="/todos/@Model.Id/toggle" hx-target="closest div" hx-swap="outerHTML" />
+    }
+    <button hx-delete="/todos/@Model.Id" hx-target="closest div" hx-swap="outerHTML">X</button>
+</div>
+
+@code {
+    [Parameter]
+    public TodoItem Model { get; set; } = new();
+}

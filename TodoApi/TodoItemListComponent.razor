@@ -1,0 +1,11 @@
+﻿<div>
+    @foreach (var item in Model)
+    {
+        <TodoItemComponent Model="@item"></TodoItemComponent>
+    }
+    <TodoFormComponent></TodoFormComponent>
+</div>
+@code {
+    [Parameter]
+    public List<TodoItem> Model { get; set; } = new();
+}
